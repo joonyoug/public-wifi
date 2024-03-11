@@ -178,8 +178,15 @@ public class InsertAPI {
                     wifi.setX_SWIFI_SVC_SE(row.get("X_SWIFI_SVC_SE").toString());
                     wifi.setX_SWIFI_CMCWR(row.get("X_SWIFI_CMCWR").toString());
 
-                    Date cnstcYear = cnstcDateFormat.parse(row.get("X_SWIFI_CNSTC_YEAR").toString());
-                    wifi.setX_SWIFI_CNSTC_YEAR(new java.sql.Date(cnstcYear.getTime()));
+                    String cnstcYearString = row.get("X_SWIFI_CNSTC_YEAR").toString();
+                    Date cnstcYear;
+                    if (!cnstcYearString.equals("미확인")) {
+                        cnstcYear = cnstcDateFormat.parse(cnstcYearString);
+                        wifi.setX_SWIFI_CNSTC_YEAR(new java.sql.Date(cnstcYear.getTime()));
+                    } else {
+                        wifi.setX_SWIFI_CNSTC_YEAR(null);
+                    }
+
 
                     wifi.setX_SWIFI_INOUT_DOOR(row.get("X_SWIFI_INOUT_DOOR").toString());
                     wifi.setX_SWIFI_REMARS3(row.get("X_SWIFI_REMARS3").toString());

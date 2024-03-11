@@ -14,8 +14,6 @@
     <%
         InsertAPI insertAPI=new InsertAPI();
         int count= insertAPI.wifiLoadBatch();
-
-
     %>
     <h2 style="text-align: center"><%= count %>개의 WIFI 정보를 정상적으로 저장하였습니다.</h2>
     <a href="index.jsp" style=" display: block; text-align: center">홈으로 가기</a>
